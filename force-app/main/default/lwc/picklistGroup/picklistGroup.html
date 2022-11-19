@@ -1,0 +1,14 @@
+<template>
+    <div class="slds-form-element">
+        <label class="slds-form-element__label" for="select-01">{headerLabel}</label>
+        <select class="slds-select" data-id={options} data-item={options} onchange={handleSelect}></select>
+            <option value="">Select</option>
+            <template for:each={options} for:item="opt">
+                <optgroup key={opt.groupName} label={opt.groupName}>
+                    <template for:each={opt.childs} for:item="op">
+                        <option key={op.value}>{op.label}</option>
+                    </template>
+                </optgroup>
+            </template>
+    </div>
+</template>
