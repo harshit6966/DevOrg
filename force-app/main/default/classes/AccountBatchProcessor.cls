@@ -1,6 +1,6 @@
 public without sharing class AccountBatchProcessor implements Database.Batchable<sObject>, Database.Stateful {
 	
-    public Integer recordCount = 0;
+    //public Integer recordCount = 0;
 	
     public Database.QueryLocator start(Database.BatchableContext dbc) {
         return Database.getQueryLocator([SELECT Id FROM Account__c]);
@@ -11,10 +11,10 @@ public without sharing class AccountBatchProcessor implements Database.Batchable
             acc.Account_Status__c = 'Active';
         }
         update accounts;
-        recordCount = recordCount + accounts.size();
+        //recordCount = recordCount + accounts.size();
     }
     
     public void finish(Database.BatchableContext dbc) {
-        System.debug('Total records processed ' + recordCount);
+        //System.debug('Total records processed ' + recordCount);
     }
 }
